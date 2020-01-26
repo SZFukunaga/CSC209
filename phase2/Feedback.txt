@@ -1,0 +1,32 @@
+Dear group_0569
+
+This semester, we talked about MVP, the Model-View-Presenter architecture. It has many advantages, particularly when working with Android. As you can see from your project, your activity classes have methods that are specific to Android. If you encapsulate the rest of your code sufficiently, it is possible to port it to another platform simply by creating a new UI (for example, a website).
+
+Encapsulation can take on many forms. You can package your View classes together. You can ensure that your dependencies go one-way, towards the inner more abstract layers. You can incorporate SOLID principles as much as possible and design patterns where they make sense.
+Here is feedback that is specific to your project:
+
+You made good use of strategy, factory, MVP and Singleton design patterns. Although Observer wasn’t fully implemented (yet), having Enemy extend Observable and explaining how it should be properly used shows that you have a good understanding of the use cases and implementation. 
+
+Encapsulation was implemented well across the board, and inheritance was properly used in all instances. Extending your code in most instances, such as when adding a new Chess piece, would be easy and localized thanks to your solid implementation of inheritance.
+
+Your organization was great and the code was very easy to navigate thanks to a well designed package hierarchy. Javadoc was implemented almost everywhere and was consistent and described the behaviour of the code well. Also, most of your classes and methods were appropriately sized and used helper methods accordingly.
+
+The user sees a very nice looking interface that gives them a few options to customize, such as navigation settings (tilt or arrows) and viewing past games. There is also error prevention on login which is a nice touch. However, the user is only able to play games in a linear fashion, and cannot pause, restart, or replay a game. Giving the user freedoms like this would have upped the professional quality of the game. Additionally, the scoreboard can be seen after the final game is beaten. 
+
+A good next step would be to remove dead code and unused variables, such as in MazeContract and Presenter in InventoryFragment. This will make your code easier to read, and more professional in appearance. 
+
+In addition, refactoring your code so you don’t need to pass bundle from one game to another. Consider making the data between games not be dependent on any of the games. One way to do this would be using the MVP design pattern and using the model to work with the data that you have in the bundle. It would also be better not to have each game responsible for which game is to go to next, this adds extra coupling between games and violates the single responsibility principle.
+
+On the same note, solving this problem would remove the current restriction on the Maze game occurring first. This dependency is stopping your game from having a natural flow, as well as restricting the order of the games. Additionally, changes to the Maze game can cause code in the other games to need to be changed because of this dependency. Also, adding a new game that you want to go first would create many changes that would need to be propagated across a lot of your code.
+
+There was an instance of an incorrectly used static method, the reason for which was to use the method without instantiating the class. This is an incorrect use of a static method, and also demonstrates that the class in question either violates the single responsibility principle, or that the method does not belong in this class. 
+
+A few of your onCreate methods are quite large and could use some refactoring with helper methods too. This was not widespread or too detrimental, but using helper methods to shorten these to an appropriate length would have been a good professional decision.
+
+On a final note, presenting while showing the code or the game is clearer and gives less opportunity for losing the audience than reading from previously prepared notes.
+
+We hope that you enjoyed working on this project and found it a useful learning experience.
+
+Cheers,
+The CSC207 Instructional Team
+
